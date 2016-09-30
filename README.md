@@ -13,7 +13,7 @@ Contains : Inception v4, Inception-ResNet-v1 and Inception-ResNet-v2
 Available at : <a href="https://github.com/titu1994/Inception-v4">Inception v4 in Keras </a>
 
 # <a href="https://github.com/titu1994/Wide-Residual-Networks">Wide Residual Networks in Keras</a>
-Implementation of Wide Residual Networks from the paper <a href="https://arxiv.org/pdf/1605.07146v1.pdf>Wide Residual Networks</a>
+Implementation of Wide Residual Networks from the paper <a href="https://arxiv.org/pdf/1605.07146v1.pdf">Wide Residual Networks</a>
 
 ## Usage
 It can be used by importing the wide_residial_network script and using the create_wide_residual_network() method. There are several parameters which can be changed to increase the depth or width of the network.
