@@ -32,3 +32,13 @@ model = Model(ip, wrn_28_10)
 Contains weights for WRN-16-8 and WRN-28-8 models trained on the CIFAR-10 Dataset.
 
 Available at : <a href="https://github.com/titu1994/Wide-Residual-Networks">Wide Residual Network in Keras</a>
+
+# <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles </a>
+Implementation of the paper [Snapshot Ensembles](https://github.com/titu1994/Snapshot-Ensembles)
+
+## Usage
+The technique is simple to implement in Keras, using a custom callback. These callbacks can be built using the SnapshotCallbackBuilder class in snapshot.py. Other models can simply use this callback builder to other models to train them in a similar manner.
+
+1. Download the 6 WRN-16-4 weights that are provided in the Release tab of the project and place them in the weights directory
+2. Run the train_cifar_10.py script to train the WRN-16-4 model on CIFAR-10 dataset (not required since weights are provided)
+3. Run the predict_cifar_10.py script to make an ensemble prediction.
