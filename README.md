@@ -33,7 +33,7 @@ Contains weights for WRN-16-8 and WRN-28-8 models trained on the CIFAR-10 Datase
 
 Available at : <a href="https://github.com/titu1994/Wide-Residual-Networks">Wide Residual Network in Keras</a>
 
-# <a href="https://github.com/titu1994/DenseNet">Dense Net </a>
+# <a href="https://github.com/titu1994/DenseNet">DenseNet in Keras</a>
 Implementation of DenseNet from the paper [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993v1.pdf).
 
 ## Usage
@@ -41,9 +41,9 @@ Implementation of DenseNet from the paper [Densely Connected Convolutional Netwo
 1. Run the cifar10.py script to train the DenseNet 40 model
 2. Comment out the model.fit_generator(...) line and uncomment the model.load_weights("weights/DenseNet-40-12-CIFAR10.h5") line to test the classification accuracy.
 
-Available at : <a href="https://github.com/titu1994/DenseNet">Dense Net in Keras</a>
+Available at : <a href="https://github.com/titu1994/DenseNet">DenseNet in Keras</a>
 
-# <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles </a>
+# <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
 Implementation of the paper [Snapshot Ensembles](https://github.com/titu1994/Snapshot-Ensembles)
 
 ## Usage
