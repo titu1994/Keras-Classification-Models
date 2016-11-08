@@ -41,7 +41,7 @@ Implementation of DenseNet from the paper [Densely Connected Convolutional Netwo
 1. Run the cifar10.py script to train the DenseNet 40 model
 2. Comment out the model.fit_generator(...) line and uncomment the model.load_weights("weights/DenseNet-40-12-CIFAR10.h5") line to test the classification accuracy.
 
-Available at : <a href="https://github.com/titu1994/DenseNet">Dense Net </a>
+Available at : <a href="https://github.com/titu1994/DenseNet">Dense Net in Keras</a>
 
 # <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles </a>
 Implementation of the paper [Snapshot Ensembles](https://github.com/titu1994/Snapshot-Ensembles)
@@ -53,4 +53,4 @@ The technique is simple to implement in Keras, using a custom callback. These ca
 2. Run the train_cifar_10.py script to train the WRN-16-4 model on CIFAR-10 dataset (not required since weights are provided)
 3. Run the predict_cifar_10.py script to make an ensemble prediction.
 
-Available at : <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles </a>
+Available at : <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
