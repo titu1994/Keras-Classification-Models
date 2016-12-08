@@ -41,6 +41,8 @@ Implementation of DenseNet from the paper [Densely Connected Convolutional Netwo
 1. Run the cifar10.py script to train the DenseNet 40 model
 2. Comment out the model.fit_generator(...) line and uncomment the model.load_weights("weights/DenseNet-40-12-CIFAR10.h5") line to test the classification accuracy.
 
+Contains weights for DenseNet-40-12 and DenseNet-Fast-40-12, trained on CIFAR 10.
+
 Available at : <a href="https://github.com/titu1994/DenseNet">DenseNet in Keras</a>
 
 # <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
@@ -53,4 +55,29 @@ The technique is simple to implement in Keras, using a custom callback. These ca
 2. Run the train_cifar_10.py script to train the WRN-16-4 model on CIFAR-10 dataset (not required since weights are provided)
 3. Run the predict_cifar_10.py script to make an ensemble prediction.
 
+Contains weights for WRN-CIFAR100-16-4 and WRN-CIFAR10-16-4 (snapshot ensemble weights - ranging from 1-5 and including single best model)
+
 Available at : <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
+
+# <a href="https://github.com/titu1994/Residual-of-Residual-Networks">Residual Networks of Residual Networks in Keras</a>
+Implementation of the paper ["Residual Networks of Residual Networks: Multilevel Residual Networks"](https://arxiv.org/pdf/1608.02908v1.pdf)
+
+## Usage
+To create RoR ResNet models, use the `ror.py` script :
+```
+import ror
+
+input_dim = (3, 32, 32) if K.image_dim_ordering() == 'th' else (32, 32, 3)
+model = ror.create_residual_of_residual(input_dim, nb_classes=100, N=2, dropout=0.0) # creates RoR-3-110 (ResNet)
+```
+
+To create RoR Wide Residual Network models, use the `ror_wrn.py` script :
+```
+import ror_wrn as ror
+
+input_dim = (3, 32, 32) if K.image_dim_ordering() == 'th' else (32, 32, 3)
+model = ror.create_pre_residual_of_residual(input_dim, nb_classes=100, N=6, k=2, dropout=0.0) # creates RoR-3-WRN-40-2 (WRN)
+```
+Contains weights for RoR-3-WRN-40-2 trained on CIFAR 10
+
+Available at : <a href="https://github.com/titu1994/Residual-of-Residual-Networks">Residual Networks of Residual Networks in Keras</a>
