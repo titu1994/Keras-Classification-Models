@@ -4,8 +4,6 @@ import numpy as np
 from keras import backend as K
 from keras.utils.layer_utils import convert_all_kernels_in_model
 
-import tensorflow as tf
-
 ''' IMPORT YOUR SCRIPT FILE HERE TO CREATE YOUR MODEL LATER '''
 
 
@@ -14,15 +12,15 @@ import tensorflow as tf
 This is a script to convert Theano models (Theano Backend, TH dim ordering)
 to the other possible backend / dim ordering combinartions.
 
-Given weights and model for TH-kernels-TH-dim-ordering, produces a folder with
-- TH-kernels-TF-dim-ordering
-- TF-kernels-TH-dim-ordering
-- TF-kernels-TF-dim-ordering
+Given weights and model for TH-kernels-TH-dim-ordering, produces a set of folder with
+- TH-kernels-TF-dim-ordering weights
+- TF-kernels-TH-dim-ordering weights
+- TF-kernels-TF-dim-ordering weights
 
 Needs 3 important inputs:
 
 1) Theano model (model with TH dim ordering)
-2) Tensorflow model (model with TF dim ordering)
+2) Tensorflow model (same model with TF dim ordering)
 3) Weight file for Theano model (theano-kernels-th-dim-ordering)
 
 Supports : Multiple weights for same model (auto converts different weights for same model)
