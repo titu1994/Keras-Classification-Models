@@ -4,6 +4,8 @@ import numpy as np
 from keras import backend as K
 from keras.utils.layer_utils import convert_all_kernels_in_model
 
+import tensorflow as tf
+
 ''' IMPORT YOUR SCRIPT FILE HERE TO CREATE YOUR MODEL LATER '''
 
 
@@ -12,15 +14,15 @@ from keras.utils.layer_utils import convert_all_kernels_in_model
 This is a script to convert Theano models (Theano Backend, TH dim ordering)
 to the other possible backend / dim ordering combinartions.
 
-Given weights and model for TH-kernels-TH-dim-ordering, produces a set of folder with
-- TH-kernels-TF-dim-ordering weights
-- TF-kernels-TH-dim-ordering weights
-- TF-kernels-TF-dim-ordering weights
+Given weights and model for TH-kernels-TH-dim-ordering, produces a folder with
+- TH-kernels-TF-dim-ordering
+- TF-kernels-TH-dim-ordering
+- TF-kernels-TF-dim-ordering
 
 Needs 3 important inputs:
 
 1) Theano model (model with TH dim ordering)
-2) Tensorflow model (same model with TF dim ordering)
+2) Tensorflow model (model with TF dim ordering)
 3) Weight file for Theano model (theano-kernels-th-dim-ordering)
 
 Supports : Multiple weights for same model (auto converts different weights for same model)
@@ -85,30 +87,30 @@ for dirpath in ["tf-kernels-tf-dim/", "tf-kernels-th-dim/", "th-kernels-tf-dim/"
 # Converts (theano kernels, th dim ordering) to (tensorflow kernels, th dim ordering)
 K.set_image_dim_ordering('tf')
 for weight_fn in model_weights:
-    th_dim_th_kernels.load_weights(weight_fn)
-    convert_all_kernels_in_model(th_dim_th_kernels)
+    th_dim_model.load_weights(weight_fn)
+    convert_all_kernels_in_model(th_dim_model)
 
-    th_dim_th_kernels.save_weights("tf-kernels-th-dim/%s" % weight_fn, overwrite=True)
+    th_dim_model.save_weights("tf-kernels-th-dim/%s" % weight_fn, overwrite=True)
     print("Done tf-kernels-th-dim %s" % weight_fn)
 
 
 # Converts (theano kernels, th dim ordering) to (tensorflow kernels, tf dim ordering)
 K.set_image_dim_ordering('th')
 for weight_fn in model_weights:
-    th_dim_th_kernels.load_weights(weight_fn) # th-kernels-th-dim
-    convert_all_kernels_in_model(th_dim_th_kernels) # tf-kernels-th-dim
+    th_dim_model.load_weights(weight_fn) # th-kernels-th-dim
+    convert_all_kernels_in_model(th_dim_model) # tf-kernels-th-dim
 
     count_dense = 0
-    for layer in th_dim_th_kernels.layers:
+    for layer in th_dim_model.layers:
         if layer.__class__.__name__ == "Dense":
             count_dense += 1
 
     if count_dense == 1:
         first_dense = False # If there is only 1 dense, no need to perform row shuffle in Dense layer
 
-    print("Nb layers : ", len(th_dim_th_kernels.layers))
+    print("Nb layers : ", len(th_dim_model.layers))
 
-    for index, th_layer in enumerate(th_dim_th_kernels.layers):
+    for index, th_layer in enumerate(th_dim_model.layers):
         if th_layer.__class__.__name__ in ['Convolution1D',
                                            'Convolution2D',
                                            'Convolution3D',
@@ -116,7 +118,7 @@ for weight_fn in model_weights:
                                            'Deconvolution2D']:
             weights = th_layer.get_weights() # tf-kernels-th-dim
             weights[0] = weights[0].transpose((2, 3, 1, 0))
-            tf_dim_tf_kernels.layers[index].set_weights(weights) # tf-kernels-tf-dim
+            tf_dim_model.layers[index].set_weights(weights) # tf-kernels-tf-dim
 
             nb_last_conv = th_layer.nb_filter # preserve last number of convolutions to use with dense layers
             print("Converted layer %d : %s" % (index + 1, th_layer.name))
@@ -129,33 +131,33 @@ for weight_fn in model_weights:
                 print("Magic nunber 2 : ", nb_rows_dense_layer)
 
                 weights[0] = shuffle_rows(weights[0], nb_last_conv, nb_rows_dense_layer)
-                tf_dim_tf_kernels.layers[index].set_weights(weights)
+                tf_dim_model.layers[index].set_weights(weights)
 
                 first_dense = False
                 print("Shuffled Dense Weights layer and saved %d : %s" % (index + 1, th_layer.name))
             else:
-                tf_dim_tf_kernels.layers[index].set_weights(th_layer.get_weights())
+                tf_dim_model.layers[index].set_weights(th_layer.get_weights())
                 print("Saved layer %d : %s" % (index + 1, th_layer.name))
 
 
-    tf_dim_tf_kernels.save_weights("tf-kernels-tf-dim/%s" % weight_fn, overwrite=True)
+    tf_dim_model.save_weights("tf-kernels-tf-dim/%s" % weight_fn, overwrite=True)
     print("Done tf-kernels-tf-dim %s" % weight_fn)
 
 
 # Converts (theano kernels, th dim ordering) to (theano kernels, tf dim ordering)
 for weight_fn in model_weights:
-    th_dim_th_kernels.load_weights(weight_fn)
+    th_dim_model.load_weights(weight_fn)
 
-    for index, th_layer in enumerate(th_dim_th_kernels.layers):
+    for index, th_layer in enumerate(th_dim_model.layers):
         if th_layer.__class__.__name__ in ['Convolution1D', 'Convolution2D', 'Convolution3D', 'AtrousConvolution2D']:
             # only weights transpose (tf dim order to th or vice versa)
             weights = th_layer.get_weights()
             weights[0] = weights[0].transpose((2, 3, 1, 0))
-            tf_dim_tf_kernels.layers[index].set_weights(weights)
+            tf_dim_model.layers[index].set_weights(weights)
         else:
-            tf_dim_tf_kernels.layers[index].set_weights(th_layer.get_weights())
+            tf_dim_model.layers[index].set_weights(th_layer.get_weights())
 
         print("Changed dim %d : %s" % (index + 1, th_layer.name))
 
-    tf_dim_tf_kernels.save_weights("th-kernels-tf-dim/%s" % weight_fn, overwrite=True)
+    tf_dim_model.save_weights("th-kernels-tf-dim/%s" % weight_fn, overwrite=True)
     print("Done th-kernels-tf-dim %s" % weight_fn)
