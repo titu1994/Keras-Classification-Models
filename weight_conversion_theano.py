@@ -10,7 +10,7 @@ from keras.utils.layer_utils import convert_all_kernels_in_model
 ''' BACKEND must be TENSORFLOW
 
 This is a script to convert Theano models (Theano Backend, TH dim ordering)
-to the other possible backend / dim ordering combinartions.
+to the other possible backend / dim ordering combinations.
 
 Given weights and model for TH-kernels-TH-dim-ordering, produces a folder with
 - TH-kernels-TF-dim-ordering
