@@ -47,9 +47,9 @@ th_dim_model = None # Create your theano model here with TH dim ordering
 K.set_image_dim_ordering('tf')
 tf_dim_model = None # Create your tensorflow model with TF dimordering here
 
-model_weights = [''] # Add names of theano model weight file paths here.
-                     # These weights are assumed to be for  theano backend
-                     # (th kernels) with th dim ordering!
+model_weights = [''] # Add names of tensorflow model weight file paths here.
+                     # These weights are assumed to be for tensorflow backend
+                     # (tf kernels) with tf dim ordering!
 
 """
 
