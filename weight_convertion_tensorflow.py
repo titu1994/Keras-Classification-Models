@@ -152,7 +152,6 @@ for weight_fn in model_weights:
                                            'Convolution3D',
                                            'AtrousConvolution2D',
                                            'Deconvolution2D']:
-            # only weights transpose (tf dim order to th or vice versa)
             weights = tf_layer.get_weights()
             weights[0] = weights[0].transpose((3, 2, 0, 1))
             th_dim_model.layers[index].set_weights(weights)
