@@ -66,12 +66,13 @@ def shuffle_rows(original_w, nb_last_conv, nb_rows_dense):
     '''
     converted_w = np.zeros(original_w.shape)
     count = 0
-    for index, row in enumerate(original_w):
+    for index in range(original_w.shape[0]):
         if (index % nb_last_conv) == 0 and index != 0:
             count += 1
         new_index = ((index % nb_last_conv) * nb_rows_dense) + count
         print("index from " + str(index) + " -> " + str(new_index))
-        converted_w[new_index] = row
+        converted_w[index] = original_w[new_index]
+
     return converted_w
 
 
