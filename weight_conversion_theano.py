@@ -79,7 +79,7 @@ def shuffle_rows(original_w, nb_last_conv, nb_rows_dense):
 first_dense = True
 nb_last_conv = 0
 
-for dirpath in ["tf-kernels-tf-dim/", "tf-kernels-th-dim/", "th-kernels-tf-dim/"]:
+for dirpath in ["tf-kernels-tf-dim-ordering/", "tf-kernels-th-dim-ordering/", "th-kernels-tf-dim-ordering/"]:
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
 
@@ -89,7 +89,7 @@ for weight_fn in model_weights:
     th_dim_model.load_weights(weight_fn)
     convert_all_kernels_in_model(th_dim_model)
 
-    th_dim_model.save_weights("tf-kernels-th-dim/%s" % weight_fn, overwrite=True)
+    th_dim_model.save_weights("tf-kernels-th-dim-ordering/%s" % weight_fn, overwrite=True)
     print("Done tf-kernels-th-dim %s" % weight_fn)
 
 
@@ -139,7 +139,7 @@ for weight_fn in model_weights:
                 print("Saved layer %d : %s" % (index + 1, th_layer.name))
 
 
-    tf_dim_model.save_weights("tf-kernels-tf-dim/%s" % weight_fn, overwrite=True)
+    tf_dim_model.save_weights("tf-kernels-tf-dim-ordering/%s" % weight_fn, overwrite=True)
     print("Done tf-kernels-tf-dim %s" % weight_fn)
 
 
@@ -161,5 +161,5 @@ for weight_fn in model_weights:
 
         print("Changed dim %d : %s" % (index + 1, th_layer.name))
 
-    tf_dim_model.save_weights("th-kernels-tf-dim/%s" % weight_fn, overwrite=True)
+    tf_dim_model.save_weights("th-kernels-tf-dim-ordering/%s" % weight_fn, overwrite=True)
     print("Done th-kernels-tf-dim %s" % weight_fn)
