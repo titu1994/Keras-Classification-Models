@@ -1,5 +1,6 @@
 # Keras-Classification-Models
-A set of models which allow easy creation of Keras models to be used for classification purposes.
+A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
+modules which offer implementations of recent papers.
 
 # <a href="https://github.com/titu1994/Inception-v4">Inception v4 in Keras</a>
 Implementations of the Inception-v4, Inception - Resnet-v1 and v2 Architectures in Keras using the Functional API. 
@@ -107,5 +108,22 @@ import densenet_fc as dc
 
 model = dc.create_fc_dense_net(img_dim=(3, 224, 224), nb_dense_block=5, growth_rate=12,
                                nb_filter=16, nb_layers=4)
+```
+-----
+
+# Keras Contrib Modules
+
+A set of scripts which can be used to add advanced functionality to Keras.
+
+# <a href="https://github.com/titu1994/BatchRenormalization">Batch Renormalization</a>
+Batch Renormalization algorithm implementation in Keras 1.2.1. Original paper by Sergey Ioffe, [Batch Renormalization: Towards Reducing Minibatch Dependence in Batch-Normalized Models](https://arxiv.org/pdf/1702.03275.pdf).\
+
+## Usage
+
+Add the `batch_renorm.py` script into your repository, and import the BatchRenormalization layer.
+
+Eg. You can replace Keras BatchNormalization layers with BatchRenormalization layers.
+```
+from batch_renorm import BatchRenormalization
 ```
 -----
