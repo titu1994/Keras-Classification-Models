@@ -2,6 +2,13 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+# <a href="https://github.com/titu1994/Keras-ResNeXt">ResNeXt in Keras</a>
+Implementation of ResNeXt models from the paper [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf) in Keras 2.0+.
+
+Contains code for building the general ResNeXt model (optimized for datasets similar to CIFAR) and ResNeXtImageNet (optimized for the ImageNet dataset).
+
+Available at : <a href="https://github.com/titu1994/Keras-ResNeXt">ResNeXt in Keras</a>
+
 # <a href="https://github.com/titu1994/Inception-v4">Inception v4 in Keras</a>
 Implementations of the Inception-v4, Inception - Resnet-v1 and v2 Architectures in Keras using the Functional API. 
 The paper on these architectures is available at <a href="https://arxiv.org/pdf/1602.07261v1.pdf">"Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning".</a>
