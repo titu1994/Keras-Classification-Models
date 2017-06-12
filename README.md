@@ -2,6 +2,13 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+# <a href="https://github.com/titu1994/MobileNetworks">MobileNets in Keras</a>
+Implementation of MobileNet models from the paper [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/pdf/1704.04861.pdf) in Keras 2.0+.
+
+Contains code for building the MobileNet model (optimized for datasets similar to ImageNet) and weights for the model trained on ImageNet.
+
+Available at : <a href="https://github.com/titu1994/MobileNetworks">MobileNets in Keras</a>
+
 # <a href="https://github.com/titu1994/Keras-ResNeXt">ResNeXt in Keras</a>
 Implementation of ResNeXt models from the paper [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf) in Keras 2.0+.
 
