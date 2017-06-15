@@ -41,10 +41,10 @@ Usage:
 4) Use the weight files in the created folders : ["tf-kernels-tf-dim/", "tf-kernels-th-dim/", "th-kernels-tf-dim/"]
 '''
 
-K.set_image_dim_ordering('th')
+K.set_image_data_format('channels_first')
 th_dim_model = None # Create your theano model here with TH dim ordering
 
-K.set_image_dim_ordering('tf')
+K.set_image_data_format('channels_last')
 tf_dim_model = None # Create your tensorflow model with TF dimordering here
 
 model_weights = [''] # Add names of theano model weight file paths here.
@@ -89,8 +89,8 @@ for weight_fn in model_weights:
     th_dim_model.load_weights(weight_fn)
     convert_all_kernels_in_model(th_dim_model)
 
-    th_dim_model.save_weights("tf-kernels-th-dim-ordering/%s" % weight_fn, overwrite=True)
-    print("Done tf-kernels-th-dim %s" % weight_fn)
+    th_dim_model.save_weights("tf-kernels-channels-first-dim-ordering/%s" % weight_fn, overwrite=True)
+    print("Done tf-kernels-channels-first-dim-ordering %s" % weight_fn)
 
 
 # Converts (theano kernels, th dim ordering) to (tensorflow kernels, tf dim ordering)
@@ -114,7 +114,10 @@ for weight_fn in model_weights:
                                            'Convolution2D',
                                            'Convolution3D',
                                            'AtrousConvolution2D',
-                                           'Deconvolution2D']:
+                                           'Conv2DTranspose',
+                                           'SeparableConvolution2D',
+                                           'DepthwiseConvolution2D',
+                                           ]:
             weights = th_layer.get_weights() # tf-kernels-th-dim
             weights[0] = weights[0].transpose((2, 3, 1, 0))
             tf_dim_model.layers[index].set_weights(weights) # tf-kernels-tf-dim
@@ -139,8 +142,8 @@ for weight_fn in model_weights:
                 print("Saved layer %d : %s" % (index + 1, th_layer.name))
 
 
-    tf_dim_model.save_weights("tf-kernels-tf-dim-ordering/%s" % weight_fn, overwrite=True)
-    print("Done tf-kernels-tf-dim %s" % weight_fn)
+    tf_dim_model.save_weights("tf-kernels-channels-last-dim-ordering/%s" % weight_fn, overwrite=True)
+    print("Done tf-kernels-channels-last-dim-ordering %s" % weight_fn)
 
 
 # Converts (theano kernels, th dim ordering) to (theano kernels, tf dim ordering)
@@ -152,7 +155,10 @@ for weight_fn in model_weights:
                                            'Convolution2D',
                                            'Convolution3D',
                                            'AtrousConvolution2D',
-                                           'Deconvolution2D']:
+                                           'Conv2DTranspose',
+                                           'SeparableConvolution2D',
+                                           'DepthwiseConvolution2D',
+                                           ]:
             weights = th_layer.get_weights()
             weights[0] = weights[0].transpose((2, 3, 1, 0))
             tf_dim_model.layers[index].set_weights(weights)
@@ -161,5 +167,5 @@ for weight_fn in model_weights:
 
         print("Changed dim %d : %s" % (index + 1, th_layer.name))
 
-    tf_dim_model.save_weights("th-kernels-tf-dim-ordering/%s" % weight_fn, overwrite=True)
-    print("Done th-kernels-tf-dim %s" % weight_fn)
+    tf_dim_model.save_weights("th-kernels-channels-last-dim-ordering/%s" % weight_fn, overwrite=True)
+    print("Done th-kernels-channels-last-dim-ordering %s" % weight_fn)
