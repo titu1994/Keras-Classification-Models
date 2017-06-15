@@ -79,7 +79,7 @@ def shuffle_rows(original_w, nb_last_conv, nb_rows_dense):
 first_dense = True
 nb_last_conv = 0
 
-for dirpath in ["tf-kernels-tf-dim-ordering/", "tf-kernels-th-dim-ordering/", "th-kernels-tf-dim-ordering/"]:
+for dirpath in ["tf-kernels-channels-last-dim-ordering/", "tf-kernels-channels-first-dim-ordering/", "th-kernels-channels-last-dim-ordering/"]:
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
 
