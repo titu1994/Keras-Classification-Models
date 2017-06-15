@@ -110,13 +110,14 @@ for weight_fn in model_weights:
     print("Nb layers : ", len(th_dim_model.layers))
 
     for index, th_layer in enumerate(th_dim_model.layers):
-        if th_layer.__class__.__name__ in ['Convolution1D',
-                                           'Convolution2D',
-                                           'Convolution3D',
+        if th_layer.__class__.__name__ in ['Conv1D',
+                                           'Conv2D',
+                                           'Conv3D',
+                                           'AtrousConvolution1D'
                                            'AtrousConvolution2D',
                                            'Conv2DTranspose',
-                                           'SeparableConvolution2D',
-                                           'DepthwiseConvolution2D',
+                                           'SeparableConv2D',
+                                           'DepthwiseConv2D',
                                            ]:
             weights = th_layer.get_weights() # tf-kernels-th-dim
             weights[0] = weights[0].transpose((2, 3, 1, 0))
@@ -151,13 +152,14 @@ for weight_fn in model_weights:
     th_dim_model.load_weights(weight_fn)
 
     for index, th_layer in enumerate(th_dim_model.layers):
-        if th_layer.__class__.__name__ in ['Convolution1D',
-                                           'Convolution2D',
-                                           'Convolution3D',
+        if th_layer.__class__.__name__ in ['Conv1D',
+                                           'Conv2D',
+                                           'Conv3D',
+                                           'AtrousConvolution1D'
                                            'AtrousConvolution2D',
                                            'Conv2DTranspose',
-                                           'SeparableConvolution2D',
-                                           'DepthwiseConvolution2D',
+                                           'SeparableConv2D',
+                                           'DepthwiseConv2D',
                                            ]:
             weights = th_layer.get_weights()
             weights[0] = weights[0].transpose((2, 3, 1, 0))

@@ -79,7 +79,9 @@ def shuffle_rows(original_w, nb_last_conv, nb_rows_dense):
 first_dense = True
 nb_last_conv = 0
 
-for dirpath in ["th-kernels-channels-first-dim-ordering/", "tf-kernels-channels-first-dim-ordering/", "th-kernels-channels-last-dim-ordering/"]:
+for dirpath in ["th-kernels-channels-first-dim-ordering/",
+                "tf-kernels-channels-first-dim-ordering/",
+                "th-kernels-channels-last-dim-ordering/"]:
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
 
@@ -110,13 +112,14 @@ for weight_fn in model_weights:
     print("Nb layers : ", len(tf_dim_model.layers))
 
     for index, tf_layer in enumerate(tf_dim_model.layers):
-        if tf_layer.__class__.__name__ in ['Convolution1D',
-                                           'Convolution2D',
-                                           'Convolution3D',
+        if tf_layer.__class__.__name__ in ['Conv1D',
+                                           'Conv2D',
+                                           'Conv3D',
+                                           'AtrousConvolution1D'
                                            'AtrousConvolution2D',
                                            'Conv2DTranspose',
-                                           'SeparableConvolution2D',
-                                           'DepthwiseConvolution2D',
+                                           'SeparableConv2D',
+                                           'DepthwiseConv2D',
                                            ]:
             weights = tf_layer.get_weights() # th-kernels-tf-dim
             weights[0] = weights[0].transpose((3, 2, 0, 1))
@@ -151,13 +154,14 @@ for weight_fn in model_weights:
     tf_dim_model.load_weights(weight_fn)
 
     for index, tf_layer in enumerate(tf_dim_model.layers):
-        if tf_layer.__class__.__name__ in ['Convolution1D',
-                                           'Convolution2D',
-                                           'Convolution3D',
+        if tf_layer.__class__.__name__ in ['Conv1D',
+                                           'Conv2D',
+                                           'Conv3D',
+                                           'AtrousConvolution1D'
                                            'AtrousConvolution2D',
                                            'Conv2DTranspose',
-                                           'SeparableConvolution2D',
-                                           'DepthwiseConvolution2D',
+                                           'SeparableConv2D',
+                                           'DepthwiseConv2D',
                                            ]:
             weights = tf_layer.get_weights()
             weights[0] = weights[0].transpose((3, 2, 0, 1))
