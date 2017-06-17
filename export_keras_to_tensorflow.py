@@ -16,11 +16,11 @@ K.set_learning_phase(0)
 Start Editing file here 
 '''
 
-''' Create new model here and load its weights!'''
+# Create new model here and load its weights!
 model = None
 model.load_weights('')
 
-''' Edit the export folder path here ! '''
+# Edit the export folder path here !
 export_path = ''
 
 '''
