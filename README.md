@@ -2,6 +2,11 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+# <a href="https://github.com/titu1994/Keras-DualPathNetworks">Dual Path Networks in Keras</a>
+Implementation of [Dual Path Networks](https://arxiv.org/abs/1707.01629), which combine the grouped convolutions of ResNeXt with the dense connections of DenseNet into two path
+
+Available at : <a href="https://github.com/titu1994/MobileNetworks">Dual Path Networks in Keras</a>
+
 # <a href="https://github.com/titu1994/MobileNetworks">MobileNets in Keras</a>
 Implementation of MobileNet models from the paper [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/pdf/1704.04861.pdf) in Keras 2.0+.
 
