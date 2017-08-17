@@ -21,6 +21,8 @@ Contains code for building the general ResNeXt model (optimized for datasets sim
 
 Available at : <a href="https://github.com/titu1994/Keras-ResNeXt">ResNeXt in Keras</a>
 
+-----
+
 # <a href="https://github.com/titu1994/Inception-v4">Inception v4 in Keras</a>
 Implementations of the Inception-v4, Inception - Resnet-v1 and v2 Architectures in Keras using the Functional API. 
 The paper on these architectures is available at <a href="https://arxiv.org/pdf/1602.07261v1.pdf">"Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning".</a>
@@ -130,7 +132,7 @@ model = dc.create_fc_dense_net(img_dim=(3, 224, 224), nb_dense_block=5, growth_r
 ```
 -----
 
-# Keras Contrib Modules
+# Keras Modules
 
 A set of scripts which can be used to add advanced functionality to Keras.
 
@@ -146,3 +148,18 @@ Eg. You can replace Keras BatchNormalization layers with BatchRenormalization la
 from batch_renorm import BatchRenormalization
 ```
 -----
+
+# <a href="https://github.com/titu1994/Keras-Multiplicative-LSTM">Multiplicative LSTM</a>
+Implementation of the paper [Multiplicative LSTM for sequence modelling](https://arxiv.org/pdf/1609.07959.pdf) for Keras 2.0+. Multiplicative LSTMs have been shown to achieve state-of-the-art or close to SotA results for sequence modelling datasets. They also perform better than stacked LSTM models for the Hutter-prize dataset and the raw wikipedia dataset.
+
+
+## Usage
+
+Add the `multiplicative_lstm.py` script into your repository, and import the MultiplicativeLSTM layer.
+
+Eg. You can replace Keras LSTM layers with MultiplicativeLSTM layers.
+```
+from multiplicative_lstm import MultiplicativeLSTM
+```
+-----
+
