@@ -2,6 +2,11 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+#  <a href="https://github.com/titu1994/keras-squeeze-excite-network">Squeeze and Excite Networks in Keras</a>
+Implementation of Squeeze and Excite networks in Keras. Supports ResNet and Inception v3 models currently. Support for Inception v4 and Inception-ResNet-v2 will also come once the paper comes out.
+
+Available at : <a href="https://github.com/titu1994/keras-squeeze-excite-network">Squeeze and Excite Networks in Keras</a>
+
 # <a href="https://github.com/titu1994/Keras-DualPathNetworks">Dual Path Networks in Keras</a>
 Implementation of [Dual Path Networks](https://arxiv.org/abs/1707.01629), which combine the grouped convolutions of ResNeXt with the dense connections of DenseNet into two path
 
