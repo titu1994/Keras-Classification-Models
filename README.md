@@ -141,6 +141,21 @@ model = dc.create_fc_dense_net(img_dim=(3, 224, 224), nb_dense_block=5, growth_r
 
 A set of scripts which can be used to add advanced functionality to Keras.
 
+# <a href="https://github.com/titu1994/keras-SRU">Simple Recurrent Unit (SRU)</a>
+Implementation of the paper [Training RNNs as Fast as CNNs](https://arxiv.org/abs/1709.02755) for Keras 2.0+. SRU is a recurrent unit that can run over 10 times faster than cuDNN LSTM, without loss of accuracy tested on many tasks, when implemented with a custom CUDA kernel.
+
+This is a naive implementation with some speed gains over the generic LSTM cells, however its speed is not yet 10x that of cuDNN LSTMs.
+
+## Usage
+
+Add the `multiplicative_lstm.py` script into your repository, and import the MultiplicativeLSTM layer.
+
+Eg. You can replace Keras LSTM layers with MultiplicativeLSTM layers.
+```
+from multiplicative_lstm import MultiplicativeLSTM
+```
+-----
+
 # <a href="https://github.com/titu1994/BatchRenormalization">Batch Renormalization</a>
 Batch Renormalization algorithm implementation in Keras 1.2.1. Original paper by Sergey Ioffe, [Batch Renormalization: Towards Reducing Minibatch Dependence in Batch-Normalized Models](https://arxiv.org/pdf/1702.03275.pdf).\
 
