@@ -2,6 +2,13 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+#  <a href="https://github.com/titu1994/Keras-NASNet">Neural Architecture Search Net (NASNet) in Keras</a>
+An implementation of "NASNet" models from the paper [Learning Transferable Architectures for Scalable Image Recognitio](https://arxiv.org/abs/1707.07012) in Keras 2.0+.
+
+Supports building NASNet Large (6 @ 4032), NASNet Mobile (4 @ 1056) and custom NASNets. 
+
+Available at : <a href="https://github.com/titu1994/Keras-NASNet">Neural Architecture Search Net (NASNet) in Keras</a>
+
 #  <a href="https://github.com/titu1994/keras-squeeze-excite-network">Squeeze and Excite Networks in Keras</a>
 Implementation of Squeeze and Excite networks in Keras. Supports ResNet and Inception v3 models currently. Support for Inception v4 and Inception-ResNet-v2 will also come once the paper comes out.
 
