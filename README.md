@@ -2,6 +2,15 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+<a href="https://github.com/titu1994/keras-non-local-nets">Non-Local Neural Networks in Keras</a>
+Keras implementation of Non-local blocks from the paper ["Non-local Neural Networks"](https://arxiv.org/abs/1711.07971).
+
+- Support for "Gaussian", "Embedded Gaussian" and "Dot" instantiations of the Non-Local block.
+- Support for shielded computation mode (reduces computation by 4x)
+- Support for "Concatenation" instantiation will be supported when authors release their code.
+
+Available at : <a href="https://github.com/titu1994/keras-non-local-nets">Non-Local Neural Networks in Keras</a>
+
 #  <a href="https://github.com/titu1994/Keras-NASNet">Neural Architecture Search Net (NASNet) in Keras</a>
 An implementation of "NASNet" models from the paper [Learning Transferable Architectures for Scalable Image Recognitio](https://arxiv.org/abs/1707.07012) in Keras 2.0+.
 
