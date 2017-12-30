@@ -2,6 +2,17 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+# <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
+Basic implementation of Controller RNN from the paper ["Neural Architecture Search with Reinforcement Learning
+"](https://arxiv.org/abs/1611.01578) and ["Learning Transferable Architectures for Scalable Image Recognition"](https://arxiv.org/abs/1707.07012).
+
+- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Controller RNN.
+- Define a state space by using StateSpace, a manager which adds states and handles communication between the Controller RNN and the user.
+- Reinforce manages the training and evaluation of the Controller RNN
+- NetworkManager handles the training and reward computation of a Keras model
+
+Available at : <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
+
 # <a href="https://github.com/titu1994/keras-non-local-nets">Non-Local Neural Networks in Keras</a>
 Keras implementation of Non-local blocks from the paper ["Non-local Neural Networks"](https://arxiv.org/abs/1711.07971).
 
