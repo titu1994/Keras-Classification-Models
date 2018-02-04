@@ -202,3 +202,35 @@ from multiplicative_lstm import MultiplicativeLSTM
 ```
 -----
 
+# <a href="https://github.com/titu1994/keras-minimal-rnn">Minimal RNN</a>
+Implementation of the paper [MinimalRNN: Toward More Interpretable and Trainable Recurrent Neural Networks
+](https://arxiv.org/abs/1711.06788) for Keras 2.0+. Minimal RNNs are a new recurrent neural network architecture that achieves comparable performance as the popular gated RNNs with a simplified structure. It employs minimal updates within RNN, which not only leads to efficient learning and testing but more importantly better interpretability and trainability
+
+## Usage
+
+Import minimal_rnn.py and use either the MinimalRNNCell or MinimalRNN layer
+
+```python
+from minimal_rnn import MinimalRNN 
+
+# this imports the layer rather than the cell
+ip = Input(...)  # Rank 3 input shape
+x = MinimalRNN(units=128)(ip)
+...
+```
+-----
+
+# <a href="https://github.com/titu1994/Nested-LSTM">Nested LSTM</a>
+Implementation of the paper [Nested LSTMs](https://arxiv.org/abs/1801.10308) for Keras 2.0+. Nested LSTMs add depth to LSTMs via nesting as opposed to stacking. The value of a memory cell in an NLSTM is computed by an LSTM cell, which has its own inner memory cell. Nested LSTMs outperform both stacked and single-layer LSTMs with similar numbers of parameters in our experiments on various character-level language modeling tasks, and the inner memories of an LSTM learn longer term dependencies compared with the higher-level units of a stacked LSTM
+
+## Usage
+```python
+from nested_lstm import NestedLSTM
+
+ip = Input(shape=(nb_timesteps, input_dim))
+x = NestedLSTM(units=64, depth=2)(ip)
+...
+```
+-----
+
+
