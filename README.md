@@ -2,6 +2,31 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+#  <a href="https://github.com/titu1994/keras-SparseNet">Sparse Neural Networks (SparseNets) in Keras</a>
+An implementation of "SparseNets" from the paper [Sparsely Connected Convolutional Networks](https://arxiv.org/abs/1801.05895) in Keras 2.0+.
+
+SparseNets are a modification of DenseNet and its dense connectivity pattern to reduce memory requirements drastically while still having similar or better performance.
+
+# <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
+Basic implementation of Encoder RNN from the paper ["Progressive Neural Architecture Search"]https://arxiv.org/abs/1712.00559), which is an improvement over the original Neural Architecture Search paper since it requires far less time and resources.
+
+- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Encoder RNN.
+- Define a state space by using StateSpace, a manager which adds states and handles communication between the Encoder RNN and the user. Submit custom operations and parse locally as required.
+- Encoder RNN trained using a modified Sequential Model Based Optimization algorithm from the paper. Some stability modifications made by me to prevent extreme variance when training to cause failed training.
+- NetworkManager handles the training and reward computation of a Keras model
+
+Available at : <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
+
+# <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
+Basic implementation of Encoder RNN from the paper ["Progressive Neural Architecture Search"]https://arxiv.org/abs/1712.00559), which is an improvement over the original Neural Architecture Search paper since it requires far less time and resources.
+
+- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Encoder RNN.
+- Define a state space by using StateSpace, a manager which adds states and handles communication between the Encoder RNN and the user. Submit custom operations and parse locally as required.
+- Encoder RNN trained using a modified Sequential Model Based Optimization algorithm from the paper. Some stability modifications made by me to prevent extreme variance when training to cause failed training.
+- NetworkManager handles the training and reward computation of a Keras model
+
+Available at : <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
+
 # <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
 Basic implementation of Controller RNN from the paper ["Neural Architecture Search with Reinforcement Learning
 "](https://arxiv.org/abs/1611.01578) and ["Learning Transferable Architectures for Scalable Image Recognition"](https://arxiv.org/abs/1707.07012).
