@@ -17,16 +17,6 @@ Basic implementation of Encoder RNN from the paper ["Progressive Neural Architec
 
 Available at : <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
 
-# <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
-Basic implementation of Encoder RNN from the paper ["Progressive Neural Architecture Search"]https://arxiv.org/abs/1712.00559), which is an improvement over the original Neural Architecture Search paper since it requires far less time and resources.
-
-- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Encoder RNN.
-- Define a state space by using StateSpace, a manager which adds states and handles communication between the Encoder RNN and the user. Submit custom operations and parse locally as required.
-- Encoder RNN trained using a modified Sequential Model Based Optimization algorithm from the paper. Some stability modifications made by me to prevent extreme variance when training to cause failed training.
-- NetworkManager handles the training and reward computation of a Keras model
-
-Available at : <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
-
 # <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
 Basic implementation of Controller RNN from the paper ["Neural Architecture Search with Reinforcement Learning
 "](https://arxiv.org/abs/1611.01578) and ["Learning Transferable Architectures for Scalable Image Recognition"](https://arxiv.org/abs/1707.07012).
@@ -192,6 +182,29 @@ model = dc.create_fc_dense_net(img_dim=(3, 224, 224), nb_dense_block=5, growth_r
 # Keras Modules
 
 A set of scripts which can be used to add advanced functionality to Keras.
+
+# <a href="https://github.com/titu1994/Keras-IndRNN">Independently Recurrent Neural Networks (SRU)</a>
+Implementation of the paper [Independently Recurrent Neural Network (IndRNN): Building A Longer and Deeper RNN](https://arxiv.org/abs/1803.04831) for Keras 2.0+. IndRNN is a recurrent unit that can run over extremely long time sequences, able to learn the additional problem over 5000 timesteps where most other models fail..
+
+## Usage
+Usage of IndRNNCells
+```python
+from ind_rnn import IndRNNCell, RNN
+
+cells = [IndRNNCell(128), IndRNNCell(128)]
+ip = Input(...)
+x = RNN(cells)(ip)
+...
+```
+Usage of IndRNN layer
+```python
+from ind_rnn import IndRNN
+
+ip = Input(...)
+x = IndRNN(128)(x)
+...
+```
+-----
 
 # <a href="https://github.com/titu1994/keras-SRU">Simple Recurrent Unit (SRU)</a>
 Implementation of the paper [Training RNNs as Fast as CNNs](https://arxiv.org/abs/1709.02755) for Keras 2.0+. SRU is a recurrent unit that can run over 10 times faster than cuDNN LSTM, without loss of accuracy tested on many tasks, when implemented with a custom CUDA kernel.
