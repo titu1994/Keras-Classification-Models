@@ -183,6 +183,33 @@ model = dc.create_fc_dense_net(img_dim=(3, 224, 224), nb_dense_block=5, growth_r
 
 A set of scripts which can be used to add advanced functionality to Keras.
 
+-----
+
+# <a href="https://github.com/titu1994/Keras-just-another-network-JANET">Chrono Initializer, Chrono LSTM and JANET</a>
+Keras implementation of the paper [The unreasonable effectiveness of the forget gate](https://arxiv.org/abs/1804.04849) and the Chrono initializer and Chrono LSTM from the paper [Can Recurrent Neural Networks Warp Time?](https://openreview.net/pdf?id=SJcKhk-Ab). 
+
+This model utilizes just 2 gates - forget (f) and context (c) gates out of the 4 gates in a regular LSTM RNN, and uses `Chrono Initialization` to acheive better performance than regular LSTMs while using fewer parameters and less complicated gating structure.
+
+## Usage
+Simply import the `janet.py` file into your repo and use the `JANET` layer. 
+
+It is **not** adviseable to use the `JANETCell` directly wrapped around a `RNN` layer, as this will not allow the `max timesteps` calculation that is needed for proper training using the `Chrono Initializer` for the forget gate.
+
+The `chrono_lstm.py` script contains the `ChronoLSTM` model, as it requires minimal modifications to the original `LSTM` layer to use the `ChronoInitializer` for the forget and input gates.
+
+Same restrictions to usage as the `JANET` layer, use the `ChronoLSTM` layer directly instead of the `ChronoLSTMCell` wrapped around a `RNN` layer.
+
+```python
+from janet import JANET
+from chrono_lstm import ChronoLSTM
+
+...
+```
+
+To use just the `ChronoInitializer`, import the `chrono_initializer.py` script.
+
+-----
+
 # <a href="https://github.com/titu1994/Keras-IndRNN">Independently Recurrent Neural Networks (SRU)</a>
 Implementation of the paper [Independently Recurrent Neural Network (IndRNN): Building A Longer and Deeper RNN](https://arxiv.org/abs/1803.04831) for Keras 2.0+. IndRNN is a recurrent unit that can run over extremely long time sequences, able to learn the additional problem over 5000 timesteps where most other models fail..
 
