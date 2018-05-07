@@ -59,6 +59,8 @@ Implementation of MobileNet models from the paper [MobileNets: Efficient Convolu
 
 Contains code for building the MobileNet model (optimized for datasets similar to ImageNet) and weights for the model trained on ImageNet.
 
+Also contains MobileNet V2 model implementations + weights.
+
 Available at : <a href="https://github.com/titu1994/MobileNetworks">MobileNets in Keras</a>
 
 # <a href="https://github.com/titu1994/Keras-ResNeXt">ResNeXt in Keras</a>
@@ -118,22 +120,6 @@ Contains weights for DenseNet-40-12 and DenseNet-Fast-40-12, trained on CIFAR 10
 
 Available at : <a href="https://github.com/titu1994/DenseNet">DenseNet in Keras</a>
 
-------
-
-# <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
-Implementation of the paper [Snapshot Ensembles](https://github.com/titu1994/Snapshot-Ensembles)
-
-## Usage
-The technique is simple to implement in Keras, using a custom callback. These callbacks can be built using the SnapshotCallbackBuilder class in snapshot.py. Other models can simply use this callback builder to other models to train them in a similar manner.
-
-1. Download the 6 WRN-16-4 weights that are provided in the Release tab of the project and place them in the weights directory
-2. Run the train_cifar_10.py script to train the WRN-16-4 model on CIFAR-10 dataset (not required since weights are provided)
-3. Run the predict_cifar_10.py script to make an ensemble prediction.
-
-Contains weights for WRN-CIFAR100-16-4 and WRN-CIFAR10-16-4 (snapshot ensemble weights - ranging from 1-5 and including single best model)
-
-Available at : <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
-
 -----
 
 # <a href="https://github.com/titu1994/Residual-of-Residual-Networks">Residual Networks of Residual Networks in Keras</a>
@@ -179,9 +165,10 @@ model = dc.create_fc_dense_net(img_dim=(3, 224, 224), nb_dense_block=5, growth_r
 ```
 -----
 
-# Keras Modules
 
-A set of scripts which can be used to add advanced functionality to Keras.
+# Keras Recurrent Neural Networks
+
+A set of scripts which can be used to add custom Recurrent Neural Networks to Keras.
 
 -----
 
@@ -240,18 +227,6 @@ This is a naive implementation with some speed gains over the generic LSTM cells
 
 -----
 
-# <a href="https://github.com/titu1994/BatchRenormalization">Batch Renormalization</a>
-Batch Renormalization algorithm implementation in Keras 1.2.1. Original paper by Sergey Ioffe, [Batch Renormalization: Towards Reducing Minibatch Dependence in Batch-Normalized Models](https://arxiv.org/pdf/1702.03275.pdf).\
-
-## Usage
-
-Add the `batch_renorm.py` script into your repository, and import the BatchRenormalization layer.
-
-Eg. You can replace Keras BatchNormalization layers with BatchRenormalization layers.
-```
-from batch_renorm import BatchRenormalization
-```
------
 
 # <a href="https://github.com/titu1994/Keras-Multiplicative-LSTM">Multiplicative LSTM</a>
 Implementation of the paper [Multiplicative LSTM for sequence modelling](https://arxiv.org/pdf/1609.07959.pdf) for Keras 2.0+. Multiplicative LSTMs have been shown to achieve state-of-the-art or close to SotA results for sequence modelling datasets. They also perform better than stacked LSTM models for the Hutter-prize dataset and the raw wikipedia dataset.
@@ -297,5 +272,50 @@ x = NestedLSTM(units=64, depth=2)(ip)
 ...
 ```
 -----
+
+# Keras Modules
+
+A set of scripts which can be used to add advanced functionality to Keras.
+
+-----
+
+# <a href="https://github.com/titu1994/keras-one-cycle">One Cycle Learning Rate Policy for Keras</a>
+Implementation of One-Cycle Learning rate policy from the papers by Leslie N. Smith.
+
+- [A disciplined approach to neural network hyper-parameters: Part 1 -- learning rate, batch size, momentum, and weight decay](https://arxiv.org/abs/1803.09820)
+- [Super-Convergence: Very Fast Training of Residual Networks Using Large Learning Rates](https://arxiv.org/abs/1708.07120)
+
+-----
+
+# <a href="https://github.com/titu1994/BatchRenormalization">Batch Renormalization</a>
+Batch Renormalization algorithm implementation in Keras 1.2.1. Original paper by Sergey Ioffe, [Batch Renormalization: Towards Reducing Minibatch Dependence in Batch-Normalized Models](https://arxiv.org/pdf/1702.03275.pdf).\
+
+## Usage
+
+Add the `batch_renorm.py` script into your repository, and import the BatchRenormalization layer.
+
+Eg. You can replace Keras BatchNormalization layers with BatchRenormalization layers.
+```
+from batch_renorm import BatchRenormalization
+```
+-----
+
+
+# <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
+Implementation of the paper [Snapshot Ensembles](https://github.com/titu1994/Snapshot-Ensembles)
+
+## Usage
+The technique is simple to implement in Keras, using a custom callback. These callbacks can be built using the SnapshotCallbackBuilder class in snapshot.py. Other models can simply use this callback builder to other models to train them in a similar manner.
+
+1. Download the 6 WRN-16-4 weights that are provided in the Release tab of the project and place them in the weights directory
+2. Run the train_cifar_10.py script to train the WRN-16-4 model on CIFAR-10 dataset (not required since weights are provided)
+3. Run the predict_cifar_10.py script to make an ensemble prediction.
+
+Contains weights for WRN-CIFAR100-16-4 and WRN-CIFAR10-16-4 (snapshot ensemble weights - ranging from 1-5 and including single best model)
+
+Available at : <a href='https://github.com/titu1994/Snapshot-Ensembles'>Snapshot Ensembles in Keras</a>
+
+-----
+
 
 
