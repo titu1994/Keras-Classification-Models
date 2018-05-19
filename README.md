@@ -279,6 +279,11 @@ A set of scripts which can be used to add advanced functionality to Keras.
 
 -----
 
+# <a href="https://github.com/titu1994/tf-eager-examples">Tensorflow Eager with Keras APIs</a>
+A set of example notebooks and scripts which detail the usage and pitfalls of Eager Execution Mode in Tensorflow using Keras high level APIs.
+
+-----
+
 # <a href="https://github.com/titu1994/keras-one-cycle">One Cycle Learning Rate Policy for Keras</a>
 Implementation of One-Cycle Learning rate policy from the papers by Leslie N. Smith.
 
