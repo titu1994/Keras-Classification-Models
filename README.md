@@ -279,6 +279,26 @@ A set of scripts which can be used to add advanced functionality to Keras.
 
 -----
 
+# <a href="https://github.com/titu1994/keras-normalized-optimizers">Normalized Optimizers for Keras</a>
+Keras wrapper class for Normalized Gradient Descent from [kmkolasinski/max-normed-optimizer](https://github.com/kmkolasinski/deep-learning-notes/tree/master/max-normed-optimizer), which can be applied to almost all Keras optimizers.
+
+Partially implements [Block-Normalized Gradient Method: An Empirical Study for Training Deep Neural Network](https://arxiv.org/abs/1707.04822) for all base Keras optimizers, and allows flexibility to choose any normalizing function. It does not implement adaptive learning rates however.
+
+## Usage
+
+```python
+from keras.optimizers import Adam, SGD
+from optimizer import NormalizedOptimizer
+
+sgd = SGD(0.01, momentum=0.9, nesterov=True)
+sgd = NormalizedOptimizer(sgd, normalization='l2')
+
+adam = Adam(0.001)
+adam = NormalizedOptimizer(adam, normalization='l2')
+```
+
+-----
+
 # <a href="https://github.com/titu1994/tf-eager-examples">Tensorflow Eager with Keras APIs</a>
 A set of example notebooks and scripts which detail the usage and pitfalls of Eager Execution Mode in Tensorflow using Keras high level APIs.
 
