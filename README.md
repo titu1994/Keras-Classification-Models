@@ -2,31 +2,17 @@
 A set of models which allow easy creation of Keras models to be used for classification purposes. Also contains
 modules which offer implementations of recent papers.
 
+# **NOTE**
+Since this readme is getting very large, I will post most of these projects on [titu1994.github.io](http://titu1994.github.io)
+
+# Image Classification Models
+
 #  <a href="https://github.com/titu1994/keras-SparseNet">Sparse Neural Networks (SparseNets) in Keras</a>
 An implementation of "SparseNets" from the paper [Sparsely Connected Convolutional Networks](https://arxiv.org/abs/1801.05895) in Keras 2.0+.
 
 SparseNets are a modification of DenseNet and its dense connectivity pattern to reduce memory requirements drastically while still having similar or better performance.
 
-# <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
-Basic implementation of Encoder RNN from the paper ["Progressive Neural Architecture Search"]https://arxiv.org/abs/1712.00559), which is an improvement over the original Neural Architecture Search paper since it requires far less time and resources.
-
-- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Encoder RNN.
-- Define a state space by using StateSpace, a manager which adds states and handles communication between the Encoder RNN and the user. Submit custom operations and parse locally as required.
-- Encoder RNN trained using a modified Sequential Model Based Optimization algorithm from the paper. Some stability modifications made by me to prevent extreme variance when training to cause failed training.
-- NetworkManager handles the training and reward computation of a Keras model
-
-Available at : <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
-
-# <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
-Basic implementation of Controller RNN from the paper ["Neural Architecture Search with Reinforcement Learning
-"](https://arxiv.org/abs/1611.01578) and ["Learning Transferable Architectures for Scalable Image Recognition"](https://arxiv.org/abs/1707.07012).
-
-- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Controller RNN.
-- Define a state space by using StateSpace, a manager which adds states and handles communication between the Controller RNN and the user.
-- Reinforce manages the training and evaluation of the Controller RNN
-- NetworkManager handles the training and reward computation of a Keras model
-
-Available at : <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
+-----
 
 # <a href="https://github.com/titu1994/keras-non-local-nets">Non-Local Neural Networks in Keras</a>
 Keras implementation of Non-local blocks from the paper ["Non-local Neural Networks"](https://arxiv.org/abs/1711.07971).
@@ -37,6 +23,8 @@ Keras implementation of Non-local blocks from the paper ["Non-local Neural Netwo
 
 Available at : <a href="https://github.com/titu1994/keras-non-local-nets">Non-Local Neural Networks in Keras</a>
 
+-----
+
 #  <a href="https://github.com/titu1994/Keras-NASNet">Neural Architecture Search Net (NASNet) in Keras</a>
 An implementation of "NASNet" models from the paper [Learning Transferable Architectures for Scalable Image Recognitio](https://arxiv.org/abs/1707.07012) in Keras 2.0+.
 
@@ -44,15 +32,21 @@ Supports building NASNet Large (6 @ 4032), NASNet Mobile (4 @ 1056) and custom N
 
 Available at : <a href="https://github.com/titu1994/Keras-NASNet">Neural Architecture Search Net (NASNet) in Keras</a>
 
+-----
+
 #  <a href="https://github.com/titu1994/keras-squeeze-excite-network">Squeeze and Excite Networks in Keras</a>
 Implementation of Squeeze and Excite networks in Keras. Supports ResNet and Inception v3 models currently. Support for Inception v4 and Inception-ResNet-v2 will also come once the paper comes out.
 
 Available at : <a href="https://github.com/titu1994/keras-squeeze-excite-network">Squeeze and Excite Networks in Keras</a>
 
+-----
+
 # <a href="https://github.com/titu1994/Keras-DualPathNetworks">Dual Path Networks in Keras</a>
 Implementation of [Dual Path Networks](https://arxiv.org/abs/1707.01629), which combine the grouped convolutions of ResNeXt with the dense connections of DenseNet into two path
 
 Available at : <a href="https://github.com/titu1994/MobileNetworks">Dual Path Networks in Keras</a>
+
+-----
 
 # <a href="https://github.com/titu1994/MobileNetworks">MobileNets in Keras</a>
 Implementation of MobileNet models from the paper [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/pdf/1704.04861.pdf) in Keras 2.0+.
@@ -62,6 +56,8 @@ Contains code for building the MobileNet model (optimized for datasets similar t
 Also contains MobileNet V2 model implementations + weights.
 
 Available at : <a href="https://github.com/titu1994/MobileNetworks">MobileNets in Keras</a>
+
+-----
 
 # <a href="https://github.com/titu1994/Keras-ResNeXt">ResNeXt in Keras</a>
 Implementation of ResNeXt models from the paper [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf) in Keras 2.0+.
@@ -144,6 +140,42 @@ model = ror.create_pre_residual_of_residual(input_dim, nb_classes=100, N=6, k=2,
 Contains weights for RoR-3-WRN-40-2 trained on CIFAR 10
 
 Available at : <a href="https://github.com/titu1994/Residual-of-Residual-Networks">Residual Networks of Residual Networks in Keras</a>
+
+-----
+
+# Neural Architecture Search
+
+# <a href="https://github.com/titu1994/pyshac">Sequentual Halving and Classification</a>
+
+PySHAC is a python library to use the Sequential Halving and Classification algorithm from the paper [Parallel Architecture and Hyperparameter Search via Successive Halving and Classification](https://arxiv.org/abs/1805.10255) with ease.
+
+Available at : <a href="https://github.com/titu1994/pyshac">Sequentual Halving and Classification</a>
+Documentation available at : <a href="http://titu1994.github.io/pyshac/">PySHAC Documentation</a>
+
+-----
+
+# <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
+Basic implementation of Encoder RNN from the paper ["Progressive Neural Architecture Search"]https://arxiv.org/abs/1712.00559), which is an improvement over the original Neural Architecture Search paper since it requires far less time and resources.
+
+- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Encoder RNN.
+- Define a state space by using StateSpace, a manager which adds states and handles communication between the Encoder RNN and the user. Submit custom operations and parse locally as required.
+- Encoder RNN trained using a modified Sequential Model Based Optimization algorithm from the paper. Some stability modifications made by me to prevent extreme variance when training to cause failed training.
+- NetworkManager handles the training and reward computation of a Keras model
+
+Available at : <a href="https://github.com/titu1994/progressive-neural-architecture-search">Progressive Neural Architecture Search in Keras</a>
+
+-----
+
+# <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
+Basic implementation of Controller RNN from the paper ["Neural Architecture Search with Reinforcement Learning
+"](https://arxiv.org/abs/1611.01578) and ["Learning Transferable Architectures for Scalable Image Recognition"](https://arxiv.org/abs/1707.07012).
+
+- Uses Keras to define and train children / generated networks, which are defined in Tensorflow by the Controller RNN.
+- Define a state space by using StateSpace, a manager which adds states and handles communication between the Controller RNN and the user.
+- Reinforce manages the training and evaluation of the Controller RNN
+- NetworkManager handles the training and reward computation of a Keras model
+
+Available at : <a href="https://github.com/titu1994/neural-architecture-search">Neural Architecture Search in Keras</a>
 
 -----
 
@@ -276,6 +308,55 @@ x = NestedLSTM(units=64, depth=2)(ip)
 # Keras Modules
 
 A set of scripts which can be used to add advanced functionality to Keras.
+
+-----
+
+# <a href="https://github.com/titu1994/keras-switchnorm">Switchable Normalization for Keras</a>
+Switchable Normalization is a normalization technique that is able to learn different normalization operations for different normalization layers in a deep neural network in an end-to-end manner.
+
+Keras port of the implementation of the paper Differentiable Learning-to-Normalize via Switchable Normalization.
+
+Code ported from the switchnorm official repository.
+
+# **Note**
+
+This only implements the moving average version of batch normalization component from the paper. The batch average technique cannot be easily implemented in Keras as a layer, and therefore it is not supported.
+
+## Usage
+Simply import switchnorm.py and replace BatchNormalization layer with this layer.
+
+```python
+from switchnorm import SwitchNormalization
+
+ip = Input(...)
+...
+x = SwitchNormalization(axis=-1)(x)
+...
+```
+
+-----
+
+# <a href="https://github.com/titu1994/Keras-Group-Normalization">Group Normalization for Keras</a>
+A Keras implementation of [Group Normalization](https://arxiv.org/abs/1803.08494) by Yuxin Wu and Kaiming He.
+
+Useful for fine-tuning of large models on smaller batch sizes than in research setting (where batch size is very large due to multiple GPUs). Similar to Batch Renormalization, but performs significantly better on ImageNet.
+
+As can be seen, GN is independent of batchsize, which is crucial for fine-tuning large models which cannot be retrained with small batch sizes due to Batch Normalization's dependence on large batchsizes to compute the statistics of each batch and update its moving average perameters properly.
+
+## Usage
+
+Dropin replacement for BatchNormalization layers from Keras. The important parameter that is different from `BatchNormalization` is called `groups`. This must be appropriately set, and requires certain constraints such as :
+
+1)  Needs to an integer by which the number of channels is divisible.
+2)  `1 <= G <= #channels`, where #channels is the number of channels in the incomming layer.
+
+```python
+from group_norm import GroupNormalization
+
+ip = Input(shape=(...))
+x = GroupNormalization(groups=32, axis=-1)
+...
+```
 
 -----
 
