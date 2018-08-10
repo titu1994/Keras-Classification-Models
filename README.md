@@ -204,6 +204,16 @@ A set of scripts which can be used to add custom Recurrent Neural Networks to Ke
 
 -----
 
+# [Neural Algorithmic Logic Units](https://github.com/titu1994/keras-neural-alu)
+
+A Keras implementation of Neural Arithmatic and Logical Unit from the paper [Neural Algorithmic Logic Units](https://arxiv.org/abs/1808.00508)
+by Andrew Trask, Felix Hill, Scott Reed, Jack Rae, Chris Dyer, Phil Blunsom.
+
+- Contains the layers for `Neural Arithmatic Logic Unit (NALU)` and `Neural Accumulator (NAC)`.
+- Also contains the results of the static function learning toy tests.
+
+-----
+
 # <a href="https://github.com/titu1994/Keras-just-another-network-JANET">Chrono Initializer, Chrono LSTM and JANET</a>
 Keras implementation of the paper [The unreasonable effectiveness of the forget gate](https://arxiv.org/abs/1804.04849) and the Chrono initializer and Chrono LSTM from the paper [Can Recurrent Neural Networks Warp Time?](https://openreview.net/pdf?id=SJcKhk-Ab). 
 
