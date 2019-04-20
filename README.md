@@ -7,6 +7,14 @@ Since this readme is getting very large, I will post most of these projects on [
 
 # Image Classification Models
 
+# <a href="https://github.com/titu1994/keras-octconv">Keras Octave Convolutions</a>
+
+Keras implementation of the Octave Convolution blocks from the paper [Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution](https://arxiv.org/abs/1904.05049).
+
+<img src="https://github.com/titu1994/keras-octconv/raw/master/images/octconv.png?raw=true" height=100% width=100%>
+
+-----
+
 #  <a href="https://github.com/titu1994/keras-SparseNet">Sparse Neural Networks (SparseNets) in Keras</a>
 An implementation of "SparseNets" from the paper [Sparsely Connected Convolutional Networks](https://arxiv.org/abs/1801.05895) in Keras 2.0+.
 
